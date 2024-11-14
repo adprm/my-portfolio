@@ -1,0 +1,501 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Portfolio</title>
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+        }
+
+        .navbar {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .nav-link.active {
+            color: white !important;
+            /* Warna teks aktif */
+            font-weight: bold;
+        }
+
+        .jumbotron {
+            margin-top: 56px;
+            /* Adjusted for fixed-top navbar */
+            background: url('https://placehold.co/1920x600') no-repeat center center;
+            background-size: cover;
+            color: white;
+            text-align: center;
+            padding: 150px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .jumbotron::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .jumbotron h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            z-index: 1;
+            position: relative;
+        }
+
+        .jumbotron p {
+            font-size: 1.5rem;
+            z-index: 1;
+            position: relative;
+        }
+
+        .social-icons {
+            margin-top: 20px;
+            z-index: 1;
+            position: relative;
+        }
+
+        .social-icons a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.5rem;
+        }
+
+        .download-cv {
+            margin-top: 20px;
+            z-index: 1;
+            position: relative;
+        }
+
+        .section-title {
+            margin: 50px 0;
+            text-align: center;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: #007bff;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .card img {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .portfolio-card {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .portfolio-card img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            margin-right: 20px;
+        }
+
+        .portfolio-card .card-body {
+            flex: 1;
+        }
+
+        .footer {
+            background: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .skill-icon {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .portfolio-category {
+            margin-top: 30px;
+        }
+
+        .portfolio-category h3 {
+            margin-bottom: 20px;
+        }
+
+        .portfolio-card-mobile img {
+            height: 400px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .portfolio-card-web {
+            margin-bottom: 20px;
+        }
+
+        .portfolio-card-web img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .about-section {
+            padding: 50px 0;
+            background-color: #f8f9fa;
+        }
+
+        .about-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .about-section p {
+            font-size: 1.2rem;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .wrapper {
+            padding: 20px;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin-bottom: 50px;
+        }
+
+        .fade-in {
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .certificate-card img {
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .certificate-card img:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">My Portfolio</a>
+            <button aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"
+                class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About Me</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#technology">Teknologi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#experience">Pengalaman</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#portfolio">Portofolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Main Skill</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#certificates">Sertifikat</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="jumbotron" id="home">
+        <div class="container">
+            <h1 class="fade-in">Welcome to My Portfolio</h1>
+            <p class="fade-in">Discover my work and experience</p>
+            <div class="social-icons fade-in">
+                <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+            <div class="download-cv fade-in">
+                <a class="btn btn-primary" href="#" target="_blank">Download CV</a>
+            </div>
+        </div>
+    </div>
+    <div class="about-section" id="about">
+        <div class="container wrapper fade-in">
+            <h2>About Me</h2>
+            <p>Hello! I'm a passionate developer with a love for creating dynamic and responsive web and mobile
+                applications. With a strong background in both frontend and backend technologies, I strive to deliver
+                seamless user experiences and efficient solutions. Let's work together to bring your ideas to life!</p>
+        </div>
+    </div>
+    <div class="container" id="skills">
+        <div class="section-title">
+            <h2>Main Skill</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card text-center wrapper fade-in">
+                    <div class="card-body">
+                        <div class="skill-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h5 class="card-title">Web Development</h5>
+                        <p class="card-text">Proficient in building responsive and dynamic websites using modern web
+                            technologies.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-center wrapper fade-in">
+                    <div class="card-body">
+                        <div class="skill-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h5 class="card-title">Mobile Development</h5>
+                        <p class="card-text">Experienced in creating mobile applications for both Android and iOS
+                            platforms.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-center wrapper fade-in">
+                    <div class="card-body">
+                        <div class="skill-icon">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <h5 class="card-title">UI/UX Design</h5>
+                        <p class="card-text">Skilled in designing user-friendly and visually appealing interfaces.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="technology">
+        <div class="section-title">
+            <h2>Teknologi</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card wrapper fade-in">
+                    <img alt="Image of HTML5 logo" class="card-img-top"
+                        src="https://storage.googleapis.com/a1aa/image/mYbiux9CfU2fnEJJw4bzwmLgDRLTPJzFFwSNwb0ue9Y1RghnA.jpg" />
+                    <div class="card-body">
+                        <h5 class="card-title">HTML5</h5>
+                        <p class="card-text">Experienced in creating semantic and accessible web pages using HTML5.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card wrapper fade-in">
+                    <img alt="Image of CSS3 logo" class="card-img-top"
+                        src="https://storage.googleapis.com/a1aa/image/5SYccBidTfwkEKyCTJhMaLoTkUgHKd2xgn3ScrA8mzmbEY4JA.jpg" />
+                    <div class="card-body">
+                        <h5 class="card-title">CSS3</h5>
+                        <p class="card-text">Skilled in designing responsive and visually appealing web pages using
+                            CSS3.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card wrapper fade-in">
+                    <img alt="Image of JavaScript logo" class="card-img-top"
+                        src="https://storage.googleapis.com/a1aa/image/SjSTp1WeczT9DyCEMCKIlpXUTlK6W2bAfMqCcziqwgI2IwwTA.jpg" />
+                    <div class="card-body">
+                        <h5 class="card-title">JavaScript</h5>
+                        <p class="card-text">Proficient in adding interactivity and dynamic content to web pages using
+                            JavaScript.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="experience">
+        <div class="section-title">
+            <h2>Pengalaman</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card wrapper fade-in">
+                    <img alt="Image of a corporate office environment" class="card-img-top"
+                        src="https://storage.googleapis.com/a1aa/image/dNHjvB62ThafDSI3vhcew6QI65DRWAEVLkkrwuwkgx6eRghnA.jpg" />
+                    <div class="card-body">
+                        <h5 class="card-title">Software Developer at XYZ Corp</h5>
+                        <p class="card-text">Developed and maintained web applications for various clients, ensuring
+                            high performance and responsiveness.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card wrapper fade-in">
+                    <img alt="Image of a team working on a project" class="card-img-top"
+                        src="https://storage.googleapis.com/a1aa/image/aTLmglTqKvLlLhmmsdiz1xrYfF0y4KNqFA3FK5TWfqb9IwwTA.jpg" />
+                    <div class="card-body">
+                        <h5 class="card-title">Frontend Developer at ABC Ltd</h5>
+                        <p class="card-text">Collaborated with designers and backend developers to create seamless user
+                            experiences on the web.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="portfolio">
+        <div class="section-title">
+            <h2>Portofolio</h2>
+        </div>
+        <div class="portfolio-category">
+            <h3>Mobile</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card portfolio-card-mobile wrapper fade-in">
+                        <img alt="Screenshot of a mobile app interface"
+                            src="https://storage.googleapis.com/a1aa/image/pYA9dpfW8NzOSq1a5b8C7oZgrLjvwkIgzVIKXEJpyme7IwwTA.jpg" />
+                        <div class="card-body">
+                            <h5 class="card-title">Project One</h5>
+                            <p class="card-text">A mobile app interface designed with Flutter and Dart.</p>
+                            <span class="badge bg-primary">Flutter</span>
+                            <span class="badge bg-secondary">Dart</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card portfolio-card-mobile wrapper fade-in">
+                        <img alt="Screenshot of another mobile app interface"
+                            src="https://storage.googleapis.com/a1aa/image/ZMkZmDerktzXJybEKsp9ujBfYkFHgBDKa0cxjxK1fDVCtghnA.jpg" />
+                        <div class="card-body">
+                            <h5 class="card-title">Project Two</h5>
+                            <p class="card-text">Another mobile app interface designed with React Native.</p>
+                            <span class="badge bg-primary">React Native</span>
+                            <span class="badge bg-secondary">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="portfolio-category">
+            <h3>Web</h3>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card portfolio-card-web wrapper fade-in">
+                        <img alt="Screenshot of a modern web application"
+                            src="https://storage.googleapis.com/a1aa/image/LepE2BycEw3aXSlpC1zvDYDGcBuupWrAzY184qe0nmL5IwwTA.jpg" />
+                        <div class="card-body">
+                            <h5 class="card-title">Project Three</h5>
+                            <p class="card-text">A modern web application built using React and Node.js.</p>
+                            <span class="badge bg-primary">React</span>
+                            <span class="badge bg-secondary">Node.js</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="card portfolio-card-web wrapper fade-in">
+                        <img alt="Screenshot of an e-commerce website"
+                            src="https://storage.googleapis.com/a1aa/image/hpcerAdH0JWKeEFFSzLMMwTuiVAowKTGxMAj5aiASCc8IwwTA.jpg" />
+                        <div class="card-body">
+                            <h5 class="card-title">Project Four</h5>
+                            <p class="card-text">An e-commerce website developed with Django and Bootstrap.</p>
+                            <span class="badge bg-primary">Django</span>
+                            <span class="badge bg-secondary">Bootstrap</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="certificates">
+        <div class="section-title">
+            <h2>Sertifikat</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card certificate-card wrapper fade-in">
+                    <img alt="Certificate of completion for a web development course"
+                        src="https://storage.googleapis.com/a1aa/image/LN7OBffW3KtyfpBQPMNpwD2AjiHWNzmUiMsvj25nJQlPZhhnA.jpg"
+                        data-bs-toggle="modal" data-bs-target="#certificateModal1" />
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card certificate-card wrapper fade-in">
+                    <img alt="Certificate of completion for a mobile development course"
+                        src="https://storage.googleapis.com/a1aa/image/fNKZ3lDkAhyeM0Qtu3MX1gOQQH4ZR6y6OdjpejJgdieryCDPB.jpg"
+                        data-bs-toggle="modal" data-bs-target="#certificateModal2" />
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card certificate-card wrapper fade-in">
+                    <img alt="Certificate of completion for a UI/UX design course" height="300"
+                        src="https://storage.googleapis.com/a1aa/image/nafTfTTtRdtxvE4sjBXyWQwrQif8JX9zLR4TyZg9mALSZhhnA.jpg"
+                        width="400" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <p>
+                © 2023 My Portfolio. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const navLinks = document.querySelectorAll('.navbar .nav-link');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function () {
+                    navLinks.forEach(item => item.classList.remove('active')); // Hapus kelas aktif dari semua tautan
+                    this.classList.add('active'); // Tambahkan kelas aktif ke tautan yang diklik
+                });
+            });
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoIvST3go5zbAK/lwy26VCgCpFA2Q1Oq7F9oGVScC/zY"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
