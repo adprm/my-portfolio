@@ -1,1001 +1,1324 @@
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Portfolio</title>
-    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+    <title>Aditiya | Portfolio</title>
+    <link
+      crossorigin="anonymous"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #f0f2f5;
-            color: #333;
+      body {
+        font-family: "Roboto", sans-serif;
+        background-color: #f0f2f5;
+        color: #333;
+      }
+
+      .navbar {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar .nav-link.active {
+        color: white !important;
+        /* Warna teks aktif */
+        font-weight: bold;
+      }
+
+      .jumbotron {
+        margin-top: 56px;
+        /* Adjusted for fixed-top navbar */
+        /* background: url('https://placehold.co/1920x600') no-repeat center center; */
+        background: url("bg.png") no-repeat center center;
+        background-size: cover;
+        color: white;
+        text-align: center;
+        padding: 150px 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .jumbotron::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+      }
+
+      .jumbotron h1 {
+        font-size: 4rem;
+        font-weight: 700;
+        z-index: 1;
+        position: relative;
+      }
+
+      .jumbotron p {
+        font-size: 1.5rem;
+        z-index: 1;
+        position: relative;
+      }
+
+      .social-icons {
+        margin-top: 20px;
+        z-index: 1;
+        position: relative;
+      }
+
+      .social-icons a {
+        color: white;
+        margin: 0 10px;
+        font-size: 1.5rem;
+      }
+
+      .download-cv {
+        margin-top: 20px;
+        z-index: 1;
+        position: relative;
+      }
+
+      .section-title {
+        margin: 50px 0;
+        text-align: center;
+      }
+
+      .section-title h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        position: relative;
+        display: inline-block;
+        padding-bottom: 10px;
+      }
+
+      .section-title h2::after {
+        content: "";
+        position: absolute;
+        width: 50px;
+        height: 3px;
+        background: #007bff;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .card img {
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .portfolio-card {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .portfolio-card img {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        margin-right: 20px;
+      }
+
+      .portfolio-card .card-body {
+        flex: 1;
+      }
+
+      .footer {
+        background: #333;
+        color: white;
+        padding: 20px 0;
+        text-align: center;
+      }
+
+      .skill-icon {
+        font-size: 3rem;
+        margin-bottom: 10px;
+      }
+
+      .portfolio-category {
+        margin-top: 30px;
+      }
+
+      .portfolio-category h3 {
+        margin-bottom: 20px;
+      }
+
+      .portfolio-card-mobile img {
+        height: 400px;
+        width: 100%;
+        object-fit: cover;
+      }
+
+      .portfolio-card-web {
+        margin-bottom: 20px;
+      }
+
+      .portfolio-card-web img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .about-section {
+        padding: 50px 0;
+        background-color: #f8f9fa;
+      }
+
+      .about-section h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .about-section p {
+        font-size: 1.2rem;
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .wrapper {
+        padding: 20px;
+        background: white;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        margin-bottom: 50px;
+      }
+
+      .fade-in {
+        animation: fadeIn 2s ease-in-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
         }
 
-        .navbar {
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        to {
+          opacity: 1;
         }
+      }
 
-        .navbar .nav-link.active {
-            color: white !important;
-            /* Warna teks aktif */
-            font-weight: bold;
-        }
+      .certificate-card img {
+        width: 100%;
+        height: auto;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+      }
 
-        .jumbotron {
-            margin-top: 56px;
-            /* Adjusted for fixed-top navbar */
-            /* background: url('https://placehold.co/1920x600') no-repeat center center; */
-            background: url('bg.png') no-repeat center center;
-            background-size: cover;
-            color: white;
-            text-align: center;
-            padding: 150px 0;
-            position: relative;
-            overflow: hidden;
-        }
+      .certificate-card img:hover {
+        transform: scale(1.1);
+      }
 
-        .jumbotron::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-        }
+      .card-title {
+        text-align: center;
+      }
 
-        .jumbotron h1 {
-            font-size: 4rem;
-            font-weight: 700;
-            z-index: 1;
-            position: relative;
-        }
+      .work-duration {
+        text-align: center;
+      }
 
-        .jumbotron p {
-            font-size: 1.5rem;
-            z-index: 1;
-            position: relative;
-        }
+      .card-img-top2 {
+        max-width: 300px;
+        /* Mengatur lebar maksimum gambar */
+        max-height: 200px;
+        /* Mengatur tinggi maksimum gambar */
+        object-fit: contain;
+        /* Memastikan gambar tetap proporsional */
+        margin: 0 auto;
+        /* Memposisikan gambar di tengah */
+      }
 
-        .social-icons {
-            margin-top: 20px;
-            z-index: 1;
-            position: relative;
-        }
-
-        .social-icons a {
-            color: white;
-            margin: 0 10px;
-            font-size: 1.5rem;
-        }
-
-        .download-cv {
-            margin-top: 20px;
-            z-index: 1;
-            position: relative;
-        }
-
-        .section-title {
-            margin: 50px 0;
-            text-align: center;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            position: relative;
-            display: inline-block;
-            padding-bottom: 10px;
-        }
-
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            width: 50px;
-            height: 3px;
-            background: #007bff;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .card img {
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .portfolio-card {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .portfolio-card img {
-            width: 200px;
-            height: 200px;
-            object-fit: cover;
-            margin-right: 20px;
-        }
-
-        .portfolio-card .card-body {
-            flex: 1;
-        }
-
-        .footer {
-            background: #333;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-        }
-
-        .skill-icon {
-            font-size: 3rem;
-            margin-bottom: 10px;
-        }
-
-        .portfolio-category {
-            margin-top: 30px;
-        }
-
-        .portfolio-category h3 {
-            margin-bottom: 20px;
-        }
-
-        .portfolio-card-mobile img {
-            height: 400px;
-            width: 100%;
-            object-fit: cover;
-        }
-
-        .portfolio-card-web {
-            margin-bottom: 20px;
-        }
-
-        .portfolio-card-web img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .about-section {
-            padding: 50px 0;
-            background-color: #f8f9fa;
-        }
-
-        .about-section h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .about-section p {
-            font-size: 1.2rem;
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .wrapper {
-            padding: 20px;
-            background: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            margin-bottom: 50px;
-        }
-
-        .fade-in {
-            animation: fadeIn 2s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        .certificate-card img {
-            width: 100%;
-            height: auto;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .certificate-card img:hover {
-            transform: scale(1.1);
-        }
-
-        .card-title {
-            text-align: center;
-        }
-
-        .work-duration {
-            text-align: center;
-        }
-
-        .card-img-top2 {
-            max-width: 300px;
-            /* Mengatur lebar maksimum gambar */
-            max-height: 200px;
-            /* Mengatur tinggi maksimum gambar */
-            object-fit: contain;
-            /* Memastikan gambar tetap proporsional */
-            margin: 0 auto;
-            /* Memposisikan gambar di tengah */
-        }
-
-        .card-img-top {
-            max-width: 250px;
-            /* Mengatur lebar maksimum gambar */
-            max-height: 100px;
-            /* Mengatur tinggi maksimum gambar */
-            object-fit: contain;
-            /* Memastikan gambar tetap proporsional */
-            margin: 0 auto;
-            /* Memposisikan gambar di tengah */
-        }
+      .card-img-top {
+        max-width: 250px;
+        /* Mengatur lebar maksimum gambar */
+        max-height: 100px;
+        /* Mengatur tinggi maksimum gambar */
+        object-fit: contain;
+        /* Memastikan gambar tetap proporsional */
+        margin: 0 auto;
+        /* Memposisikan gambar di tengah */
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">My Portfolio</a>
-            <button aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"
-                class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">About Me</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#skills">Main Skill</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#technology">Technology</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#experience">Experience</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#portfolio">Portfolio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#certificates">Certificates</a>
-                    </li>
-                </ul>
-            </div>
+      <div class="container">
+        <a class="navbar-brand" href="#">My Portfolio</a>
+        <button
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+          class="navbar-toggler"
+          data-bs-target="#navbarNav"
+          data-bs-toggle="collapse"
+          type="button"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About Me</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#skills">Main Skill</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#technology">Technology</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#experience">Experience</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#portfolio">Portfolio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#certificates">Certificates</a>
+            </li>
+          </ul>
         </div>
+      </div>
     </nav>
     <div class="jumbotron" id="home">
-        <div class="container">
-            <h1 class="fade-in">Viandry Prasiswandava</h1>
-            <p class="fade-in">Fullstack Developer</p>
-            <div class="social-icons fade-in">
-                <a href="https://mail.google.com/mail/u/0/?fs=1&tf=cm&to=viandry8002@gmail.com" target="_blank"><i
-                        class="fab fa-google"></i></a>
-                <a href="https://github.com/viandry2008" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://gitlab.com/viandry8002" target="_blank"><i class="fab fa-gitlab"></i></a>
-                <a href="https://www.linkedin.com/in/viandry-prasiswandava-156a581bb/" target="_blank"><i
-                        class="fab fa-linkedin-in"></i></a>
-                <!-- <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a> -->
-            </div>
-            <div class="download-cv fade-in">
-                <a class="btn btn-primary" href="./cv/CV_Viandry_.pdf" target="_blank">Download CV</a>
-            </div>
+      <div class="container">
+        <h1 class="fade-in">Aditiya permana</h1>
+        <p class="fade-in">Mobile Developer</p>
+        <div class="social-icons fade-in">
+          <a
+            href="https://mail.google.com/mail/u/0/?fs=1&tf=cm&to=aditiyaprmn00@gmail.com"
+            target="_blank"
+            ><i class="fab fa-google"></i
+          ></a>
+          <a href="https://github.com/adprm" target="_blank"
+            ><i class="fab fa-github"></i
+          ></a>
+          <a href="https://gitlab.com/adprm" target="_blank"
+            ><i class="fab fa-gitlab"></i
+          ></a>
+          <a href="www.linkedin.com/in/adprm" target="_blank"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
         </div>
+        <div class="download-cv fade-in">
+          <a class="btn btn-primary" href="./cv/CV_Viandry_.pdf" target="_blank"
+            >Download CV</a
+          >
+        </div>
+      </div>
     </div>
     <div class="about-section" id="about">
-        <div class="container wrapper fade-in">
-            <h2>About Me</h2>
-            <p>I am an experienced application developer who is enthusiastic about technology, has strong analytical and logical thinking, and loves to learn new things.
-                With expertise in Laravel/CodeIgniter, .NET Core, React Native, Flutter, MySQL, and SQL Server, and an understanding of manual and automated testing,
-                I deliver innovative solutions for the web and Android. I am able to work both individually and in a team,
-                with a dynamic and scalable approach to meet the specific needs of a client or organization.</p>
-        </div>
+      <div class="container wrapper fade-in">
+        <h2>About Me</h2>
+        <br />
+        I am a Mobile Developer with over 4 years of experience in developing
+        applications using React Native and Flutter. I am accustomed to building
+        projects from scratch, continuing existing ones, and performing regular
+        maintenance. I have experience working both independently and in teams,
+        and I am highly adaptable to both technical and non-technical needs in
+        the field.
+        <br />
+        In addition to my mobile development skills, I also have experience in
+        building and managing cloud servers, as well as deploying applications
+        using Laravel and Node.js.
+        <br />
+        I am known as someone with strong problem-solving skills, a high level
+        of curiosity, and great enthusiasm for the field of computer science.
+        With a combination of experience and a strong passion for learning, I am
+        confident in my ability to contribute positively to any team or
+        organization.
+      </div>
     </div>
     <div class="container" id="skills">
-        <div class="section-title">
-            <h2>Main Skill</h2>
+      <div class="section-title">
+        <h2>Main Skill</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card text-center wrapper fade-in">
+            <div class="card-body">
+              <div class="skill-icon">
+                <i class="fas fa-mobile-alt"></i>
+              </div>
+              <h5 class="card-title">Mobile Development</h5>
+              <p class="card-text">
+                Experienced in creating mobile applications for both Android and
+                iOS platforms.
+              </p>
+            </div>
+          </div>
         </div>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="card text-center wrapper fade-in">
-                    <div class="card-body">
-                        <div class="skill-icon">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <h5 class="card-title">Web Development</h5>
-                        <p class="card-text">Proficient in building responsive and dynamic websites using modern web
-                            technologies.</p>
-                    </div>
-                </div>
+        <div class="col-md-4">
+          <div class="card text-center wrapper fade-in">
+            <div class="card-body">
+              <div class="skill-icon">
+                <i class="fas fa-code"></i>
+              </div>
+              <h5 class="card-title">Web Development</h5>
+              <p class="card-text">
+                Proficient in building responsive and dynamic websites using
+                modern web technologies.
+              </p>
             </div>
-            <div class="col-md-4">
-                <div class="card text-center wrapper fade-in">
-                    <div class="card-body">
-                        <div class="skill-icon">
-                            <i class="fas fa-mobile-alt"></i>
-                        </div>
-                        <h5 class="card-title">Mobile Development</h5>
-                        <p class="card-text">Experienced in creating mobile applications for both Android and iOS
-                            platforms.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card text-center wrapper fade-in">
-                    <div class="card-body">
-                        <div class="skill-icon">
-                            <i class="fas fa-paint-brush"></i>
-                        </div>
-                        <h5 class="card-title">UI/UX Design</h5>
-                        <p class="card-text">Skilled in designing user-friendly and visually appealing interfaces.</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Creativity Card -->
-            <div class="col-md-3">
-                <div class="card text-center wrapper fade-in">
-                    <div class="card-body">
-                        <div class="skill-icon">
-                            <i class="fas fa-lightbulb"></i>
-                        </div>
-                        <h5 class="card-title">Creativity</h5>
-                        <p class="card-text">Innovative thinking in developing unique solutions and designs.</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Collaboration Card -->
-            <div class="col-md-3">
-                <div class="card text-center wrapper fade-in">
-                    <div class="card-body">
-                        <div class="skill-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <h5 class="card-title">Collaboration</h5>
-                        <p class="card-text">Effective teamwork to achieve common goals and successful project outcomes.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <!-- Problem Solving Card -->
-            <div class="col-md-3">
-                <div class="card text-center wrapper fade-in">
-                    <div class="card-body">
-                        <div class="skill-icon">
-                            <i class="fas fa-puzzle-piece"></i>
-                        </div>
-                        <h5 class="card-title">Problem Solving</h5>
-                        <p class="card-text">Skilled in identifying issues and implementing efficient solutions.</p>
-                    </div>
-                </div>
-            </div>
-            <!-- System Analysis Card -->
-            <div class="col-md-3">
-                <div class="card text-center wrapper fade-in">
-                    <div class="card-body">
-                        <div class="skill-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <h5 class="card-title">System Analysis</h5>
-                        <p class="card-text">Expertise in analyzing system requirements and optimizing workflows.</p>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
-
+        <div class="col-md-4">
+          <div class="card text-center wrapper fade-in">
+            <div class="card-body">
+              <div class="skill-icon">
+                <i class="fas fa-paint-brush"></i>
+              </div>
+              <h5 class="card-title">Devops / Deployment Server</h5>
+              <p class="card-text">
+                Setting up and configuring cloud servers (VPS) for backend
+                application deployment (Laravel and Node.js), including Nginx
+                configuration.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Problem Solving Card -->
+        <div class="col-md-3">
+          <div class="card text-center wrapper fade-in">
+            <div class="card-body">
+              <div class="skill-icon">
+                <i class="fas fa-puzzle-piece"></i>
+              </div>
+              <h5 class="card-title">Problem Solving</h5>
+              <p class="card-text">
+                Skilled in identifying issues and implementing efficient
+                solutions.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Creativity Card -->
+        <div class="col-md-3">
+          <div class="card text-center wrapper fade-in">
+            <div class="card-body">
+              <div class="skill-icon">
+                <i class="fas fa-lightbulb"></i>
+              </div>
+              <h5 class="card-title">Creativity</h5>
+              <p class="card-text">
+                Innovative thinking in developing unique solutions and designs.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Collaboration Card -->
+        <div class="col-md-3">
+          <div class="card text-center wrapper fade-in">
+            <div class="card-body">
+              <div class="skill-icon">
+                <i class="fas fa-users"></i>
+              </div>
+              <h5 class="card-title">Collaboration</h5>
+              <p class="card-text">
+                Effective teamwork to achieve common goals and successful
+                project outcomes.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Adaptable Card -->
+        <div class="col-md-3">
+          <div class="card text-center wrapper fade-in">
+            <div class="card-body">
+              <div class="skill-icon">
+                <i class="fas fa-chart-line"></i>
+              </div>
+              <h5 class="card-title">Adaptable</h5>
+              <p class="card-text">Adaptable to new technologies.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="container" id="technology">
-        <div class="section-title">
-            <h2>Technology</h2>
+      <div class="section-title">
+        <h2>Technology</h2>
+      </div>
+      <div class="row">
+        <!-- HTML5 -->
+        <div class="col-md-4">
+          <div class="card wrapper fade-in">
+            <img
+              alt="Image of HTML5 logo"
+              class="card-img-top"
+              src="./technology/html.png"
+              style="object-fit: contain"
+            />
+            <div class="card-body">
+              <h5 class="card-title">HTML5</h5>
+              <p class="card-text">
+                Experienced in creating semantic and accessible web pages using
+                HTML5.
+              </p>
+            </div>
+          </div>
         </div>
-        <div class="row">
-            <!-- HTML5 -->
-            <div class="col-md-4">
-                <div class="card wrapper fade-in">
-                    <img alt="Image of HTML5 logo" class="card-img-top"
-                        src="./technology/html.png"
-                        style="object-fit: contain;" />
-                    <div class="card-body">
-                        <h5 class="card-title">HTML5</h5>
-                        <p class="card-text">Experienced in creating semantic and accessible web pages using HTML5.</p>
-                    </div>
-                </div>
-            </div>
 
-            <!-- CSS3 -->
-            <div class="col-md-4">
-                <div class="card wrapper fade-in">
-                    <img alt="Image of CSS3 logo" class="card-img-top"
-                        src="./technology/css.png"
-                        style="object-fit: contain;" />
-                    <div class="card-body">
-                        <h5 class="card-title">CSS3</h5>
-                        <p class="card-text">Skilled in designing responsive and visually appealing web pages using
-                            CSS3.</p>
-                    </div>
-                </div>
+        <!-- CSS3 -->
+        <div class="col-md-4">
+          <div class="card wrapper fade-in">
+            <img
+              alt="Image of CSS3 logo"
+              class="card-img-top"
+              src="./technology/css.png"
+              style="object-fit: contain"
+            />
+            <div class="card-body">
+              <h5 class="card-title">CSS3</h5>
+              <p class="card-text">
+                Skilled in designing responsive and visually appealing web pages
+                using CSS3.
+              </p>
             </div>
-
-            <!-- JavaScript -->
-            <div class="col-md-4">
-                <div class="card wrapper fade-in">
-                    <img alt="Image of JavaScript logo" class="card-img-top"
-                        src="./technology/js.png"
-                        style="object-fit: contain;" />
-                    <div class="card-body">
-                        <h5 class="card-title">JavaScript</h5>
-                        <p class="card-text">Proficient in adding interactivity and dynamic content to web pages using
-                            JavaScript.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PHP -->
-            <div class="col-md-4">
-                <div class="card wrapper fade-in">
-                    <img alt="Image of PHP logo" class="card-img-top"
-                        src="./technology/php.png"
-                        style="object-fit: contain;" />
-                    <div class="card-body">
-                        <h5 class="card-title">PHP</h5>
-                        <p class="card-text">Skilled in building server-side applications with PHP.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- React Native -->
-            <div class="col-md-4">
-                <div class="card wrapper fade-in">
-                    <img alt="Image of React Native logo" class="card-img-top"
-                        src="./technology/react.png"
-                        style="object-fit: contain;" />
-                    <div class="card-body">
-                        <h5 class="card-title">React Native</h5>
-                        <p class="card-text">Skilled in building cross-platform mobile applications using React Native.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Flutter -->
-            <div class="col-md-4">
-                <div class="card wrapper fade-in">
-                    <img alt="Image of Flutter logo" class="card-img-top"
-                        src="./technology/flutter.jpg" style="object-fit: contain;" />
-                    <div class="card-body">
-                        <h5 class="card-title">Flutter</h5>
-                        <p class="card-text">Proficient in developing beautiful, natively compiled applications using
-                            Flutter.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Laravel -->
-            <div class="col-md-4">
-                <div class="card wrapper fade-in">
-                    <img alt="Image of Laravel logo" class="card-img-top"
-                        src="./technology/laravel.png"
-                        style="object-fit: contain;" />
-                    <div class="card-body">
-                        <h5 class="card-title">Laravel</h5>
-                        <p class="card-text">Experienced in building powerful backends and APIs with Laravel.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- CodeIgniter -->
-            <div class="col-md-4">
-                <div class="card wrapper fade-in">
-                    <img alt="Image of CodeIgniter logo" class="card-img-top"
-                        src="./technology/ci.png"
-                        style="object-fit: contain;" />
-                    <div class="card-body">
-                        <h5 class="card-title">CodeIgniter</h5>
-                        <p class="card-text">Proficient in developing dynamic applications with CodeIgniter.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Bootstrap -->
-            <div class="col-md-4">
-                <div class="card wrapper fade-in">
-                    <img alt="Image of Bootstrap logo" class="card-img-top"
-                        src="./technology/bootstrap.png"
-                        style="object-fit: contain;" />
-                    <div class="card-body">
-                        <h5 class="card-title">Bootstrap</h5>
-                        <p class="card-text">Experienced in creating responsive layouts with Bootstrap.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- jQuery -->
-            <div class="col-md-4">
-                <div class="card wrapper fade-in">
-                    <img alt="Image of jQuery logo" class="card-img-top"
-                        src="./technology/jquery.png"
-                        style="object-fit: contain;" />
-                    <div class="card-body">
-                        <h5 class="card-title">jQuery</h5>
-                        <p class="card-text">Skilled in DOM manipulation and event handling with jQuery.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- MySQL -->
-            <div class="col-md-4">
-                <div class="card wrapper fade-in">
-                    <img alt="Image of MySQL logo" class="card-img-top"
-                        src="./technology/mysql.png"
-                        style="object-fit: contain;" />
-                    <div class="card-body">
-                        <h5 class="card-title">MySQL</h5>
-                        <p class="card-text">Experienced in managing and querying databases with MySQL.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Git -->
-            <div class="col-md-4">
-                <div class="card wrapper fade-in">
-                    <img alt="Image of Git logo" class="card-img-top"
-                        src="./technology/git.png"
-                        style="object-fit: contain;" />
-                    <div class="card-body">
-                        <h5 class="card-title">Git</h5>
-                        <p class="card-text">Proficient in version control and collaboration using Git.</p>
-                    </div>
-                </div>
-            </div>
-
+          </div>
         </div>
+
+        <!-- JavaScript -->
+        <div class="col-md-4">
+          <div class="card wrapper fade-in">
+            <img
+              alt="Image of JavaScript logo"
+              class="card-img-top"
+              src="./technology/js.png"
+              style="object-fit: contain"
+            />
+            <div class="card-body">
+              <h5 class="card-title">JavaScript</h5>
+              <p class="card-text">
+                Proficient in adding interactivity and dynamic content to web
+                pages using JavaScript.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- PHP -->
+        <div class="col-md-4">
+          <div class="card wrapper fade-in">
+            <img
+              alt="Image of PHP logo"
+              class="card-img-top"
+              src="./technology/php.png"
+              style="object-fit: contain"
+            />
+            <div class="card-body">
+              <h5 class="card-title">PHP</h5>
+              <p class="card-text">
+                Skilled in building server-side applications with PHP.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- React Native -->
+        <div class="col-md-4">
+          <div class="card wrapper fade-in">
+            <img
+              alt="Image of React Native logo"
+              class="card-img-top"
+              src="./technology/react.png"
+              style="object-fit: contain"
+            />
+            <div class="card-body">
+              <h5 class="card-title">React Native</h5>
+              <p class="card-text">
+                Skilled in building cross-platform mobile applications using
+                React Native.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Flutter -->
+        <div class="col-md-4">
+          <div class="card wrapper fade-in">
+            <img
+              alt="Image of Flutter logo"
+              class="card-img-top"
+              src="./technology/flutter.jpg"
+              style="object-fit: contain"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Flutter</h5>
+              <p class="card-text">
+                Proficient in developing beautiful, natively compiled
+                applications using Flutter.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Laravel -->
+        <div class="col-md-4">
+          <div class="card wrapper fade-in">
+            <img
+              alt="Image of Laravel logo"
+              class="card-img-top"
+              src="./technology/laravel.png"
+              style="object-fit: contain"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Laravel</h5>
+              <p class="card-text">
+                Experienced in building powerful backends and APIs with Laravel.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CodeIgniter -->
+        <div class="col-md-4">
+          <div class="card wrapper fade-in">
+            <img
+              alt="Image of CodeIgniter logo"
+              class="card-img-top"
+              src="./technology/ci.png"
+              style="object-fit: contain"
+            />
+            <div class="card-body">
+              <h5 class="card-title">CodeIgniter</h5>
+              <p class="card-text">
+                Proficient in developing dynamic applications with CodeIgniter.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bootstrap -->
+        <div class="col-md-4">
+          <div class="card wrapper fade-in">
+            <img
+              alt="Image of Bootstrap logo"
+              class="card-img-top"
+              src="./technology/bootstrap.png"
+              style="object-fit: contain"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Bootstrap</h5>
+              <p class="card-text">
+                Experienced in creating responsive layouts with Bootstrap.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- jQuery -->
+        <div class="col-md-4">
+          <div class="card wrapper fade-in">
+            <img
+              alt="Image of jQuery logo"
+              class="card-img-top"
+              src="./technology/jquery.png"
+              style="object-fit: contain"
+            />
+            <div class="card-body">
+              <h5 class="card-title">jQuery</h5>
+              <p class="card-text">
+                Skilled in DOM manipulation and event handling with jQuery.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- MySQL -->
+        <div class="col-md-4">
+          <div class="card wrapper fade-in">
+            <img
+              alt="Image of MySQL logo"
+              class="card-img-top"
+              src="./technology/mysql.png"
+              style="object-fit: contain"
+            />
+            <div class="card-body">
+              <h5 class="card-title">MySQL</h5>
+              <p class="card-text">
+                Experienced in managing and querying databases with MySQL.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Git -->
+        <div class="col-md-4">
+          <div class="card wrapper fade-in">
+            <img
+              alt="Image of Git logo"
+              class="card-img-top"
+              src="./technology/git.png"
+              style="object-fit: contain"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Git</h5>
+              <p class="card-text">
+                Proficient in version control and collaboration using Git.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="container" id="experience">
-        <div class="section-title">
-            <h2>Experience</h2>
+      <div class="section-title">
+        <h2>Experience</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card wrapper fade-in">
+            <img
+              alt="Image of a corporate office environment"
+              class="card-img-top2"
+              src="./experience/bonet.png"
+              style="object-fit: contain"
+            />
+            <div class="card-body">
+              <h5 class="card-title">
+                Web Developer Internship at PT BONET UTAMA
+              </h5>
+              <p class="work-duration">(September 2017 - December 2017)</p>
+              <ul>
+                <li>
+                  Developing fast, lightweight, and efficient CodeIgniter-based
+                  web applications.
+                </li>
+                <li>
+                  Developing user manuals that include usage guides, key
+                  features, and solutions to common problems.
+                </li>
+                <li>
+                  Improving application quality and efficiency by implementing
+                  more optimal development methods.
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="card wrapper fade-in">
-                    <img alt="Image of a corporate office environment" class="card-img-top2"
-                        src="./experience/bonet.png"
-                        style="object-fit: contain;" />
-                    <div class="card-body">
-                        <h5 class="card-title">Web Developer Internship at PT BONET UTAMA</h5>
-                        <p class="work-duration">(September 2017 - December 2017)</p>
-                        <ul>
-                            <li>
-                                Developing fast, lightweight, and efficient CodeIgniter-based web applications.
-                            </li>
-                            <li>
-                                Developing user manuals that include usage guides, key features, and solutions to common problems.
-                            </li>
-                            <li>
-                                Improving application quality and efficiency by implementing more optimal development methods.
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+        <div class="col-md-6">
+          <div class="card wrapper fade-in">
+            <img
+              alt="Image of a team working on a project"
+              class="card-img-top2"
+              src="./experience/narcon.jpg"
+              style="object-fit: contain"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Software Developer at PT Narcon Global</h5>
+              <p class="work-duration">(May 2019 - October 2020)</p>
+              <ul>
+                <li>
+                  Build CodeIgniter and Angular based web applications with
+                  flexible backends and dynamic frontends.
+                </li>
+                <li>
+                  Design and develop patient medical record websites for
+                  hospitals, enabling secure and structured patient data
+                  management.
+                </li>
+                <li>
+                  Identify and fix bugs to ensure application performance and
+                  stability.
+                </li>
+                <li>
+                  Develop a reliable API system for integration with third-party
+                  services.
+                </li>
+                <li>
+                  Manage and control web application versions using GitLab.
+                </li>
+              </ul>
             </div>
-            <div class="col-md-6">
-                <div class="card wrapper fade-in">
-                    <img alt="Image of a team working on a project" class="card-img-top2"
-                        src="./experience/narcon.jpg"
-                        style="object-fit: contain;" />
-                    <div class="card-body">
-                        <h5 class="card-title">Software Developer at PT Narcon Global</h5>
-                        <p class="work-duration">(May 2019 - October 2020)</p>
-                        <ul>
-                            <li>
-                                Build CodeIgniter and Angular based web applications with flexible backends and dynamic frontends.
-                            </li>
-                            <li>
-                                Design and develop patient medical record websites for hospitals, enabling secure and structured patient data management.
-                            </li>
-                            <li>
-                                Identify and fix bugs to ensure application performance and stability.
-                            </li>
-                            <li>
-                                Develop a reliable API system for integration with third-party services.
-
-                            </li>
-                            <li>
-                                Manage and control web application versions using GitLab.
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card wrapper fade-in">
-                    <img alt="Image of a team working on a project" class="card-img-top2"
-                        src="./experience/wan.png"
-                        style="object-fit: contain;" />
-                    <div class="card-body">
-                        <h5 class="card-title">Mobile Android Developer at PT WAN Teknologi Internasional</h5>
-                        <p class="work-duration">(December 2020 - Present)</p>
-                        <ul>
-                            <li>
-                                Developing mobile applications based on React Native and Flutter for cross-platform solutions.
-                            </li>
-                            <li>
-                                Implementing APIs into mobile applications to support data integration and backend functionality.
-                            </li>
-                            <li>
-                                Publishing and managing applications on Google Play Store, ensuring compliance with platform guidelines.
-                            </li>
-                            <li>
-                                Collaborating with clients to develop custom features as per business requirements.
-                            </li>
-                            <li>
-                                Designing intuitive UI/UX interfaces using Figma to enhance user experience.
-                            </li>
-                            <li>
-                                Managing code versions with GitLab, ensuring efficient and collaborative workflows.
-                            </li>
-                            <li>
-                                Developing e-commerce applications with digital payment integration, delivery services, and interactive map features.
-                            </li>
-                            <li>
-                                Building inventory tracking applications using RFID, BLE, and barcode scanner technologies to improve inventory management efficiency across industries.
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
+        <div class="col-md-6">
+          <div class="card wrapper fade-in">
+            <img
+              alt="Image of a team working on a project"
+              class="card-img-top2"
+              src="./experience/wan.png"
+              style="object-fit: contain"
+            />
+            <div class="card-body">
+              <h5 class="card-title">
+                Mobile Android Developer at PT WAN Teknologi Internasional
+              </h5>
+              <p class="work-duration">(December 2020 - Present)</p>
+              <ul>
+                <li>
+                  Developing mobile applications based on React Native and
+                  Flutter for cross-platform solutions.
+                </li>
+                <li>
+                  Implementing APIs into mobile applications to support data
+                  integration and backend functionality.
+                </li>
+                <li>
+                  Publishing and managing applications on Google Play Store,
+                  ensuring compliance with platform guidelines.
+                </li>
+                <li>
+                  Collaborating with clients to develop custom features as per
+                  business requirements.
+                </li>
+                <li>
+                  Designing intuitive UI/UX interfaces using Figma to enhance
+                  user experience.
+                </li>
+                <li>
+                  Managing code versions with GitLab, ensuring efficient and
+                  collaborative workflows.
+                </li>
+                <li>
+                  Developing e-commerce applications with digital payment
+                  integration, delivery services, and interactive map features.
+                </li>
+                <li>
+                  Building inventory tracking applications using RFID, BLE, and
+                  barcode scanner technologies to improve inventory management
+                  efficiency across industries.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="container" id="portfolio">
-        <div class="section-title">
-            <h2>Portfolio</h2>
-        </div>
-        <div class="portfolio-category">
-            <h3>Mobile</h3>
-            <div class="row">
-                <!-- Project One -->
-                <div class="col-md-6">
-                    <div
-                        class="card portfolio-card-mobile wrapper fade-in d-flex flex-column flex-md-row align-items-center">
-                        <img alt="Screenshot of a mobile app interface" src="portfolio/sipurna.png" class="img-fluid"
-                            style="max-width: 300px; border: 1px solid #bdbdbd; border-radius: 8px; margin-right: 15px;" />
-                        <div class="card-body">
-                            <h5 class="card-title">Sipurna</h5>
-                            <p class="card-text">Sipurna is a mobile application designed to provide comprehensive
-                                information related to former employees, facility services, and Bank BTN services.
-                                This application supports Android and iOS platforms, ensuring easy and fast access for
-                                users on various devices.</p>
-                            <span class="badge bg-secondary">#React Native</span>
-                            <span class="badge bg-secondary">#Javascript</span>
-                            <span class="badge bg-secondary">#Frontend</span>
-                            <span class="badge bg-secondary">#Mobile Development</span>
-                            <span class="badge bg-secondary">#Android</span>
-                            <span class="badge bg-secondary">#IOS</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project Two -->
-                <div class="col-md-6">
-                    <div
-                        class="card portfolio-card-mobile wrapper fade-in d-flex flex-column flex-md-row align-items-center">
-                        <img alt="Screenshot of a mobile app interface" src="portfolio/sin.jpg" class="img-fluid"
-                            style="max-width: 300px; border: 1px solid #bdbdbd; border-radius: 8px; margin-right: 15px;" />
-                        <div class="card-body">
-                            <h5 class="card-title">SIN Indonesia</h5>
-                            <p class="card-text">SIN Indonesia is a marketplace platform that provides various exclusive
-                                products from SIN Indonesia, allowing purchases both retail and wholesale.
-                                Through this application, users can easily browse the complete product catalog, view
-                                purchase history, and access user profiles for a more personalized and integrated
-                                shopping experience.</p>
-                            <span class="badge bg-secondary">#React Native</span>
-                            <span class="badge bg-secondary">#Javascript</span>
-                            <span class="badge bg-secondary">#Frontend</span>
-                            <span class="badge bg-secondary">#Mobile Development</span>
-                            <span class="badge bg-secondary">#Android</span>
-                            <span class="badge bg-secondary">#IOS</span>
-                            <span class="badge bg-secondary">#Store</span>
-                            <span class="badge bg-secondary">#Product</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div
-                        class="card portfolio-card-mobile wrapper fade-in d-flex flex-column flex-md-row align-items-center">
-                        <img alt="Screenshot of a mobile app interface" src="portfolio/qml.png" class="img-fluid"
-                            style="max-width: 300px; border: 1px solid #bdbdbd; border-radius: 8px; margin-right: 15px;" />
-                        <div class="card-body">
-                            <h5 class="card-title">QML App</h5>
-                            <p class="card-text">QML is a marketplace platform that offers a variety of exclusive
-                                products from QML, allowing retail and wholesale purchases.
-                                This application provides an easy and convenient shopping experience with complete
-                                features such as product catalogs, purchase history, and user profile access.
-                                In addition, users can also collect points from each transaction that can be exchanged
-                                for various attractive prizes,
-                                adding more value to a more personal and rewarding shopping experience.</p>
-                            <span class="badge bg-secondary">#Flutter</span>
-                            <span class="badge bg-secondary">#Dart</span>
-                            <span class="badge bg-secondary">#Frontend</span>
-                            <span class="badge bg-secondary">#Mobile Development</span>
-                            <span class="badge bg-secondary">#Android</span>
-                            <span class="badge bg-secondary">#IOS</span>
-                            <span class="badge bg-secondary">#Store</span>
-                            <span class="badge bg-secondary">#Product</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div
-                        class="card portfolio-card-mobile wrapper fade-in d-flex flex-column flex-md-row align-items-center">
-                        <img alt="Screenshot of a mobile app interface" src="portfolio/iac.jpg" class="img-fluid"
-                            style="max-width: 300px; border: 1px solid #bdbdbd; border-radius: 8px; margin-right: 15px;" />
-                        <div class="card-body">
-                            <h5 class="card-title">IAC App</h5>
-                            <p class="card-text">This app is a community platform that provides information organized by
-                                various categories with a primary focus on automotive themes.
-                                In addition to being a rich source of information,
-                                the app also displays relevant ads, designed to attract users and increase community
-                                engagement.</p>
-                            <span class="badge bg-secondary">#React Native</span>
-                            <span class="badge bg-secondary">#Javascript</span>
-                            <span class="badge bg-secondary">#Frontend</span>
-                            <span class="badge bg-secondary">#Mobile Development</span>
-                            <span class="badge bg-secondary">#Android</span>
-                            <span class="badge bg-secondary">#IOS</span>
-                            <span class="badge bg-secondary">#Community</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div
-                        class="card portfolio-card-mobile wrapper fade-in d-flex flex-column flex-md-row align-items-center">
-                        <img alt="Screenshot of a mobile app interface" src="portfolio/pgb.png" class="img-fluid"
-                            style="max-width: 300px; border: 1px solid #bdbdbd; border-radius: 8px; margin-right: 15px;" />
-                        <div class="card-body">
-                            <h5 class="card-title">PGB App</h5>
-                            <p class="card-text">This application is a platform for the White Crane martial arts and
-                                sports community, which presents various information about martial arts training
-                                techniques,
-                                the underlying philosophy, and various activities organized by the community. In
-                                addition, this application also includes information about social and humanitarian
-                                activities carried out by community members,
-                                in order to deepen understanding of the noble values ​​upheld in the teachings of the
-                                White Crane.</p>
-                            <span class="badge bg-secondary">#React Native</span>
-                            <span class="badge bg-secondary">#Javascript</span>
-                            <span class="badge bg-secondary">#Frontend</span>
-                            <span class="badge bg-secondary">#Mobile Development</span>
-                            <span class="badge bg-secondary">#Android</span>
-                            <span class="badge bg-secondary">#IOS</span>
-                            <span class="badge bg-secondary">#Community</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div
-                        class="card portfolio-card-mobile wrapper fade-in d-flex flex-column flex-md-row align-items-center">
-                        <img alt="Screenshot of a mobile app interface" src="portfolio/ponpaspay.png" class="img-fluid"
-                            style="max-width: 300px; border: 1px solid #bdbdbd; border-radius: 8px; margin-right: 15px;" />
-                        <div class="card-body">
-                            <h5 class="card-title">Ponpespay</h5>
-                            <p class="card-text">is a digital payment system application that allows users to make
-                                various transactions online. This application provides services that include payments
-                                for credit top-ups, bill payments, and various other financial transactions.
-                                With complete features, PPOB makes it easy for users to manage various payment needs
-                                practically and efficiently,
-                                all of which can be accessed on one secure and easy-to-use platform.</p>
-                            <span class="badge bg-secondary">#React Native</span>
-                            <span class="badge bg-secondary">#Javascript</span>
-                            <span class="badge bg-secondary">#Frontend</span>
-                            <span class="badge bg-secondary">#Mobile Development</span>
-                            <span class="badge bg-secondary">#Android</span>
-                            <span class="badge bg-secondary">#IOS</span>
-                            <span class="badge bg-secondary">#Store</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div
-                        class="card portfolio-card-mobile wrapper fade-in d-flex flex-column flex-md-row align-items-center">
-                        <img alt="Screenshot of a mobile app interface" src="portfolio/servify.png" class="img-fluid"
-                            style="max-width: 300px; border: 1px solid #bdbdbd; border-radius: 8px; margin-right: 15px;" />
-                        <div class="card-body">
-                            <h5 class="card-title">Servify</h5>
-                            <p class="card-text">This application is a home service platform that can be accessed
-                                online, allowing users to order various types of services easily and quickly.
-                                Through this application, users can access a variety of service options provided,
-                                ranging from home repairs, cleaning, to other professional services.
-                                Each order will be served by workers who are trained and experienced in their fields,
-                                thus ensuring the quality and satisfaction of users in every service provided.</p>
-                            <span class="badge bg-secondary">#Flutter</span>
-                            <span class="badge bg-secondary">#Dart</span>
-                            <span class="badge bg-secondary">#Frontend</span>
-                            <span class="badge bg-secondary">#Mobile Development</span>
-                            <span class="badge bg-secondary">#Android</span>
-                            <span class="badge bg-secondary">#IOS</span>
-                            <span class="badge bg-secondary">#Service</span>
-                            <span class="badge bg-secondary">#Cleaning</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div
-                        class="card portfolio-card-mobile wrapper fade-in d-flex flex-column flex-md-row align-items-center">
-                        <img alt="Screenshot of a mobile app interface" src="portfolio/oz.png" class="img-fluid"
-                            style="max-width: 300px; border: 1px solid #bdbdbd; border-radius: 8px; margin-right: 15px;" />
-                        <div class="card-body">
-                            <h5 class="card-title">PT OZ Warehouse Scanners</h5>
-                            <p class="card-text">This application is designed to systematically manage and record every activity of goods coming in and out of the warehouse,
-                            especially in guitar factories. This system is equipped with various sophisticated devices such as Bluetooth-based handheld scanners, 
-                            tapping table scanners, and barcode scanners. Users can easily scan goods using RFID technology or barcodes. 
-                            Thus, this application not only increases the efficiency of the inventory process but also minimizes manual recording errors, 
-                            making it an ideal solution for modern warehouse operational needs.</p>
-                            <span class="badge bg-secondary">#React Native</span>
-                            <span class="badge bg-secondary">#Javascript</span>
-                            <span class="badge bg-secondary">#Frontend</span>
-                            <span class="badge bg-secondary">#Mobile Development</span>
-                            <span class="badge bg-secondary">#Android</span>
-                            <span class="badge bg-secondary">#Scanner</span>
-                            <span class="badge bg-secondary">#Barcode</span>
-                            <span class="badge bg-secondary">#RFID</span>
-                        </div>
-                    </div>
-                </div>
+      <div class="section-title">
+        <h2>Portfolio</h2>
+      </div>
+      <div class="portfolio-category">
+        <h3>Mobile</h3>
+        <div class="row">
+          <!-- Project One -->
+          <div class="col-md-6">
+            <div
+              class="card portfolio-card-mobile wrapper fade-in d-flex flex-column flex-md-row align-items-center"
+            >
+              <img
+                alt="Screenshot of a mobile app interface"
+                src="portfolio/sipurna.png"
+                class="img-fluid"
+                style="
+                  max-width: 300px;
+                  border: 1px solid #bdbdbd;
+                  border-radius: 8px;
+                  margin-right: 15px;
+                "
+              />
+              <div class="card-body">
+                <h5 class="card-title">Sipurna</h5>
+                <p class="card-text">
+                  Sipurna is a mobile application designed to provide
+                  comprehensive information related to former employees,
+                  facility services, and Bank BTN services. This application
+                  supports Android and iOS platforms, ensuring easy and fast
+                  access for users on various devices.
+                </p>
+                <span class="badge bg-secondary">#React Native</span>
+                <span class="badge bg-secondary">#Javascript</span>
+                <span class="badge bg-secondary">#Frontend</span>
+                <span class="badge bg-secondary">#Mobile Development</span>
+                <span class="badge bg-secondary">#Android</span>
+                <span class="badge bg-secondary">#IOS</span>
+              </div>
             </div>
+          </div>
 
-        </div>
-        <div class="portfolio-category">
-            <h3>Web</h3>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="card portfolio-card-web wrapper fade-in">
-                        <img alt="Screenshot of a modern web application" src="sdn-cikaret1.png"
-                            style="width: 100%; height: auto; object-fit: contain; border: 1px solid #bdbdbd; border-radius: 8px;" />
-                        <div class="card-body">
-                            <h5 class="card-title">Website Profile of SDN Cikaret 1 Bogor City</h5>
-                            <p class="card-text">This website is a company profile website for elementary schools
-                                located in Bogor, West Java.
-                                This website aims to get to know more about SDN Cikaret 1 Bogor with the general public
-                                which contains profiles to the culture and advantages of the school</p>
-                            <!-- <span class="badge bg-primary">#React</span> -->
-                            <span class="badge bg-secondary">#Laravel</span>
-                            <span class="badge bg-secondary">#MySQL</span>
-                            <span class="badge bg-secondary">#Bootstrap</span>
-                            <span class="badge bg-secondary">#Web Development</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card portfolio-card-web wrapper fade-in">
-                        <img alt="Screenshot of an e-commerce website" src="aras-terameter.png"
-                            style="width: 100%; height: auto; object-fit: contain; border: 1px solid #bdbdbd; border-radius: 8px;" />
-                        <div class="card-body">
-                            <h5 class="card-title">ARAS Terameter</h5>
-                            <p class="card-text">Is a web-based application where the application has a decision support
-                                system method, namely ARAS,
-                                where the application contains applications to support management which produces output
-                                in the form of rankings.</p>
-                            <span class="badge bg-secondary">#Laravel</span>
-                            <span class="badge bg-secondary">#MySQL</span>
-                            <span class="badge bg-secondary">#Bootstrap</span>
-                            <span class="badge bg-secondary">#Web Development</span>
-                        </div>
-                    </div>
-                </div>
+          <!-- Project Two -->
+          <div class="col-md-6">
+            <div
+              class="card portfolio-card-mobile wrapper fade-in d-flex flex-column flex-md-row align-items-center"
+            >
+              <img
+                alt="Screenshot of a mobile app interface"
+                src="portfolio/sin.jpg"
+                class="img-fluid"
+                style="
+                  max-width: 300px;
+                  border: 1px solid #bdbdbd;
+                  border-radius: 8px;
+                  margin-right: 15px;
+                "
+              />
+              <div class="card-body">
+                <h5 class="card-title">SIN Indonesia</h5>
+                <p class="card-text">
+                  SIN Indonesia is a marketplace platform that provides various
+                  exclusive products from SIN Indonesia, allowing purchases both
+                  retail and wholesale. Through this application, users can
+                  easily browse the complete product catalog, view purchase
+                  history, and access user profiles for a more personalized and
+                  integrated shopping experience.
+                </p>
+                <span class="badge bg-secondary">#React Native</span>
+                <span class="badge bg-secondary">#Javascript</span>
+                <span class="badge bg-secondary">#Frontend</span>
+                <span class="badge bg-secondary">#Mobile Development</span>
+                <span class="badge bg-secondary">#Android</span>
+                <span class="badge bg-secondary">#IOS</span>
+                <span class="badge bg-secondary">#Store</span>
+                <span class="badge bg-secondary">#Product</span>
+              </div>
             </div>
+          </div>
+
+          <div class="col-md-6">
+            <div
+              class="card portfolio-card-mobile wrapper fade-in d-flex flex-column flex-md-row align-items-center"
+            >
+              <img
+                alt="Screenshot of a mobile app interface"
+                src="portfolio/qml.png"
+                class="img-fluid"
+                style="
+                  max-width: 300px;
+                  border: 1px solid #bdbdbd;
+                  border-radius: 8px;
+                  margin-right: 15px;
+                "
+              />
+              <div class="card-body">
+                <h5 class="card-title">QML App</h5>
+                <p class="card-text">
+                  QML is a marketplace platform that offers a variety of
+                  exclusive products from QML, allowing retail and wholesale
+                  purchases. This application provides an easy and convenient
+                  shopping experience with complete features such as product
+                  catalogs, purchase history, and user profile access. In
+                  addition, users can also collect points from each transaction
+                  that can be exchanged for various attractive prizes, adding
+                  more value to a more personal and rewarding shopping
+                  experience.
+                </p>
+                <span class="badge bg-secondary">#Flutter</span>
+                <span class="badge bg-secondary">#Dart</span>
+                <span class="badge bg-secondary">#Frontend</span>
+                <span class="badge bg-secondary">#Mobile Development</span>
+                <span class="badge bg-secondary">#Android</span>
+                <span class="badge bg-secondary">#IOS</span>
+                <span class="badge bg-secondary">#Store</span>
+                <span class="badge bg-secondary">#Product</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div
+              class="card portfolio-card-mobile wrapper fade-in d-flex flex-column flex-md-row align-items-center"
+            >
+              <img
+                alt="Screenshot of a mobile app interface"
+                src="portfolio/iac.jpg"
+                class="img-fluid"
+                style="
+                  max-width: 300px;
+                  border: 1px solid #bdbdbd;
+                  border-radius: 8px;
+                  margin-right: 15px;
+                "
+              />
+              <div class="card-body">
+                <h5 class="card-title">IAC App</h5>
+                <p class="card-text">
+                  This app is a community platform that provides information
+                  organized by various categories with a primary focus on
+                  automotive themes. In addition to being a rich source of
+                  information, the app also displays relevant ads, designed to
+                  attract users and increase community engagement.
+                </p>
+                <span class="badge bg-secondary">#React Native</span>
+                <span class="badge bg-secondary">#Javascript</span>
+                <span class="badge bg-secondary">#Frontend</span>
+                <span class="badge bg-secondary">#Mobile Development</span>
+                <span class="badge bg-secondary">#Android</span>
+                <span class="badge bg-secondary">#IOS</span>
+                <span class="badge bg-secondary">#Community</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div
+              class="card portfolio-card-mobile wrapper fade-in d-flex flex-column flex-md-row align-items-center"
+            >
+              <img
+                alt="Screenshot of a mobile app interface"
+                src="portfolio/pgb.png"
+                class="img-fluid"
+                style="
+                  max-width: 300px;
+                  border: 1px solid #bdbdbd;
+                  border-radius: 8px;
+                  margin-right: 15px;
+                "
+              />
+              <div class="card-body">
+                <h5 class="card-title">PGB App</h5>
+                <p class="card-text">
+                  This application is a platform for the White Crane martial
+                  arts and sports community, which presents various information
+                  about martial arts training techniques, the underlying
+                  philosophy, and various activities organized by the community.
+                  In addition, this application also includes information about
+                  social and humanitarian activities carried out by community
+                  members, in order to deepen understanding of the noble values
+                  ​​upheld in the teachings of the White Crane.
+                </p>
+                <span class="badge bg-secondary">#React Native</span>
+                <span class="badge bg-secondary">#Javascript</span>
+                <span class="badge bg-secondary">#Frontend</span>
+                <span class="badge bg-secondary">#Mobile Development</span>
+                <span class="badge bg-secondary">#Android</span>
+                <span class="badge bg-secondary">#IOS</span>
+                <span class="badge bg-secondary">#Community</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div
+              class="card portfolio-card-mobile wrapper fade-in d-flex flex-column flex-md-row align-items-center"
+            >
+              <img
+                alt="Screenshot of a mobile app interface"
+                src="portfolio/ponpaspay.png"
+                class="img-fluid"
+                style="
+                  max-width: 300px;
+                  border: 1px solid #bdbdbd;
+                  border-radius: 8px;
+                  margin-right: 15px;
+                "
+              />
+              <div class="card-body">
+                <h5 class="card-title">Ponpespay</h5>
+                <p class="card-text">
+                  is a digital payment system application that allows users to
+                  make various transactions online. This application provides
+                  services that include payments for credit top-ups, bill
+                  payments, and various other financial transactions. With
+                  complete features, PPOB makes it easy for users to manage
+                  various payment needs practically and efficiently, all of
+                  which can be accessed on one secure and easy-to-use platform.
+                </p>
+                <span class="badge bg-secondary">#React Native</span>
+                <span class="badge bg-secondary">#Javascript</span>
+                <span class="badge bg-secondary">#Frontend</span>
+                <span class="badge bg-secondary">#Mobile Development</span>
+                <span class="badge bg-secondary">#Android</span>
+                <span class="badge bg-secondary">#IOS</span>
+                <span class="badge bg-secondary">#Store</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div
+              class="card portfolio-card-mobile wrapper fade-in d-flex flex-column flex-md-row align-items-center"
+            >
+              <img
+                alt="Screenshot of a mobile app interface"
+                src="portfolio/servify.png"
+                class="img-fluid"
+                style="
+                  max-width: 300px;
+                  border: 1px solid #bdbdbd;
+                  border-radius: 8px;
+                  margin-right: 15px;
+                "
+              />
+              <div class="card-body">
+                <h5 class="card-title">Servify</h5>
+                <p class="card-text">
+                  This application is a home service platform that can be
+                  accessed online, allowing users to order various types of
+                  services easily and quickly. Through this application, users
+                  can access a variety of service options provided, ranging from
+                  home repairs, cleaning, to other professional services. Each
+                  order will be served by workers who are trained and
+                  experienced in their fields, thus ensuring the quality and
+                  satisfaction of users in every service provided.
+                </p>
+                <span class="badge bg-secondary">#Flutter</span>
+                <span class="badge bg-secondary">#Dart</span>
+                <span class="badge bg-secondary">#Frontend</span>
+                <span class="badge bg-secondary">#Mobile Development</span>
+                <span class="badge bg-secondary">#Android</span>
+                <span class="badge bg-secondary">#IOS</span>
+                <span class="badge bg-secondary">#Service</span>
+                <span class="badge bg-secondary">#Cleaning</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div
+              class="card portfolio-card-mobile wrapper fade-in d-flex flex-column flex-md-row align-items-center"
+            >
+              <img
+                alt="Screenshot of a mobile app interface"
+                src="portfolio/oz.png"
+                class="img-fluid"
+                style="
+                  max-width: 300px;
+                  border: 1px solid #bdbdbd;
+                  border-radius: 8px;
+                  margin-right: 15px;
+                "
+              />
+              <div class="card-body">
+                <h5 class="card-title">PT OZ Warehouse Scanners</h5>
+                <p class="card-text">
+                  This application is designed to systematically manage and
+                  record every activity of goods coming in and out of the
+                  warehouse, especially in guitar factories. This system is
+                  equipped with various sophisticated devices such as
+                  Bluetooth-based handheld scanners, tapping table scanners, and
+                  barcode scanners. Users can easily scan goods using RFID
+                  technology or barcodes. Thus, this application not only
+                  increases the efficiency of the inventory process but also
+                  minimizes manual recording errors, making it an ideal solution
+                  for modern warehouse operational needs.
+                </p>
+                <span class="badge bg-secondary">#React Native</span>
+                <span class="badge bg-secondary">#Javascript</span>
+                <span class="badge bg-secondary">#Frontend</span>
+                <span class="badge bg-secondary">#Mobile Development</span>
+                <span class="badge bg-secondary">#Android</span>
+                <span class="badge bg-secondary">#Scanner</span>
+                <span class="badge bg-secondary">#Barcode</span>
+                <span class="badge bg-secondary">#RFID</span>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+      <div class="portfolio-category">
+        <h3>Web</h3>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card portfolio-card-web wrapper fade-in">
+              <img
+                alt="Screenshot of a modern web application"
+                src="sdn-cikaret1.png"
+                style="
+                  width: 100%;
+                  height: auto;
+                  object-fit: contain;
+                  border: 1px solid #bdbdbd;
+                  border-radius: 8px;
+                "
+              />
+              <div class="card-body">
+                <h5 class="card-title">
+                  Website Profile of SDN Cikaret 1 Bogor City
+                </h5>
+                <p class="card-text">
+                  This website is a company profile website for elementary
+                  schools located in Bogor, West Java. This website aims to get
+                  to know more about SDN Cikaret 1 Bogor with the general public
+                  which contains profiles to the culture and advantages of the
+                  school
+                </p>
+                <!-- <span class="badge bg-primary">#React</span> -->
+                <span class="badge bg-secondary">#Laravel</span>
+                <span class="badge bg-secondary">#MySQL</span>
+                <span class="badge bg-secondary">#Bootstrap</span>
+                <span class="badge bg-secondary">#Web Development</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card portfolio-card-web wrapper fade-in">
+              <img
+                alt="Screenshot of an e-commerce website"
+                src="aras-terameter.png"
+                style="
+                  width: 100%;
+                  height: auto;
+                  object-fit: contain;
+                  border: 1px solid #bdbdbd;
+                  border-radius: 8px;
+                "
+              />
+              <div class="card-body">
+                <h5 class="card-title">ARAS Terameter</h5>
+                <p class="card-text">
+                  Is a web-based application where the application has a
+                  decision support system method, namely ARAS, where the
+                  application contains applications to support management which
+                  produces output in the form of rankings.
+                </p>
+                <span class="badge bg-secondary">#Laravel</span>
+                <span class="badge bg-secondary">#MySQL</span>
+                <span class="badge bg-secondary">#Bootstrap</span>
+                <span class="badge bg-secondary">#Web Development</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="container" id="certificates">
-        <div class="section-title">
-            <h2>Certificates</h2>
+      <div class="section-title">
+        <h2>Certificates</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card certificate-card wrapper fade-in">
+            <img
+              alt="Certificate of completion for a web development course"
+              src="certificate/serti(1).png"
+              data-bs-toggle="modal"
+              data-bs-target="#certificateModal1"
+              class="img-fluid certificate-img"
+            />
+          </div>
         </div>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="card certificate-card wrapper fade-in">
-                    <img alt="Certificate of completion for a web development course" src="certificate/serti(1).png"
-                        data-bs-toggle="modal" data-bs-target="#certificateModal1" class="img-fluid certificate-img" />
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card certificate-card wrapper fade-in">
-                    <img alt="Certificate of completion for a mobile development course" src="certificate/serti(2).png"
-                        data-bs-toggle="modal" data-bs-target="#certificateModal2" class="img-fluid certificate-img" />
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card certificate-card wrapper fade-in">
-                    <img alt="Certificate of completion for a web development course" src="certificate/serti(3).png"
-                        data-bs-toggle="modal" data-bs-target="#certificateModal1" class="img-fluid certificate-img" />
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card certificate-card wrapper fade-in">
-                    <img alt="Certificate of completion for a web development course" src="certificate/serti(10).png"
-                        data-bs-toggle="modal" data-bs-target="#certificateModal1" class="img-fluid certificate-img" />
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card certificate-card wrapper fade-in">
-                    <img alt="Certificate of completion for a web development course" src="certificate/serti(5).png"
-                        data-bs-toggle="modal" data-bs-target="#certificateModal1" class="img-fluid certificate-img" />
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card certificate-card wrapper fade-in">
-                    <img alt="Certificate of completion for a web development course" src="certificate/serti(6).png"
-                        data-bs-toggle="modal" data-bs-target="#certificateModal1" class="img-fluid certificate-img" />
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card certificate-card wrapper fade-in">
-                    <img alt="Certificate of completion for a web development course" src="certificate/serti(7).png"
-                        data-bs-toggle="modal" data-bs-target="#certificateModal1" class="img-fluid certificate-img" />
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card certificate-card wrapper fade-in">
-                    <img alt="Certificate of completion for a web development course" src="certificate/serti(4).png"
-                        data-bs-toggle="modal" data-bs-target="#certificateModal1" class="img-fluid certificate-img" />
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card certificate-card wrapper fade-in">
-                    <img alt="Certificate of completion for a web development course" src="certificate/serti(9).png"
-                        data-bs-toggle="modal" data-bs-target="#certificateModal1" class="img-fluid certificate-img" />
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card certificate-card wrapper fade-in">
-                    <img alt="Certificate of completion for a web development course" src="certificate/serti(8).png"
-                        data-bs-toggle="modal" data-bs-target="#certificateModal1" class="img-fluid certificate-img" />
-                </div>
-            </div>
+        <div class="col-md-4">
+          <div class="card certificate-card wrapper fade-in">
+            <img
+              alt="Certificate of completion for a mobile development course"
+              src="certificate/serti(2).png"
+              data-bs-toggle="modal"
+              data-bs-target="#certificateModal2"
+              class="img-fluid certificate-img"
+            />
+          </div>
         </div>
+        <div class="col-md-4">
+          <div class="card certificate-card wrapper fade-in">
+            <img
+              alt="Certificate of completion for a web development course"
+              src="certificate/serti(3).png"
+              data-bs-toggle="modal"
+              data-bs-target="#certificateModal1"
+              class="img-fluid certificate-img"
+            />
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card certificate-card wrapper fade-in">
+            <img
+              alt="Certificate of completion for a web development course"
+              src="certificate/serti(10).png"
+              data-bs-toggle="modal"
+              data-bs-target="#certificateModal1"
+              class="img-fluid certificate-img"
+            />
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card certificate-card wrapper fade-in">
+            <img
+              alt="Certificate of completion for a web development course"
+              src="certificate/serti(5).png"
+              data-bs-toggle="modal"
+              data-bs-target="#certificateModal1"
+              class="img-fluid certificate-img"
+            />
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card certificate-card wrapper fade-in">
+            <img
+              alt="Certificate of completion for a web development course"
+              src="certificate/serti(6).png"
+              data-bs-toggle="modal"
+              data-bs-target="#certificateModal1"
+              class="img-fluid certificate-img"
+            />
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card certificate-card wrapper fade-in">
+            <img
+              alt="Certificate of completion for a web development course"
+              src="certificate/serti(7).png"
+              data-bs-toggle="modal"
+              data-bs-target="#certificateModal1"
+              class="img-fluid certificate-img"
+            />
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card certificate-card wrapper fade-in">
+            <img
+              alt="Certificate of completion for a web development course"
+              src="certificate/serti(4).png"
+              data-bs-toggle="modal"
+              data-bs-target="#certificateModal1"
+              class="img-fluid certificate-img"
+            />
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card certificate-card wrapper fade-in">
+            <img
+              alt="Certificate of completion for a web development course"
+              src="certificate/serti(9).png"
+              data-bs-toggle="modal"
+              data-bs-target="#certificateModal1"
+              class="img-fluid certificate-img"
+            />
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card certificate-card wrapper fade-in">
+            <img
+              alt="Certificate of completion for a web development course"
+              src="certificate/serti(8).png"
+              data-bs-toggle="modal"
+              data-bs-target="#certificateModal1"
+              class="img-fluid certificate-img"
+            />
+          </div>
+        </div>
+      </div>
     </div>
     <footer class="footer">
-        <div class="container">
-            <p>
-                ©2024 - Viandry Prasiswandava
-            </p>
-        </div>
+      <div class="container">
+        <p>©2024 - Viandry Prasiswandava</p>
+      </div>
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const navLinks = document.querySelectorAll('.navbar .nav-link');
+      document.addEventListener("DOMContentLoaded", function () {
+        const navLinks = document.querySelectorAll(".navbar .nav-link");
 
-            navLinks.forEach(link => {
-                link.addEventListener('click', function () {
-                    navLinks.forEach(item => item.classList.remove('active')); // Hapus kelas aktif dari semua tautan
-                    this.classList.add('active'); // Tambahkan kelas aktif ke tautan yang diklik
-                });
-            });
+        navLinks.forEach((link) => {
+          link.addEventListener("click", function () {
+            navLinks.forEach((item) => item.classList.remove("active")); // Hapus kelas aktif dari semua tautan
+            this.classList.add("active"); // Tambahkan kelas aktif ke tautan yang diklik
+          });
         });
+      });
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ENjdO4Dr2bkBIFxQpeoIvST3go5zbAK/lwy26VCgCpFA2Q1Oq7F9oGVScC/zY"
-        crossorigin="anonymous"></script>
-</body>
-
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoIvST3go5zbAK/lwy26VCgCpFA2Q1Oq7F9oGVScC/zY"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
